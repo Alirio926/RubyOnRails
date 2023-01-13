@@ -1,0 +1,18 @@
+<!-- Post -->
+<h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<ul>
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= link_to "Destroy", article_path(@article), data:{
+        turbo_method: :delete,
+        turbo_confirm: "Voê tem certeza?"
+        } %></li>
+</ul>
+
+<!-- Comentarios do Post -->
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<!-- Adicionar novo comentario ao post -->
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
